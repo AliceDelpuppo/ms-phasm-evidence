@@ -1,3 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Ubuntu", sans-serif;
+}
 
+ul, ol, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  text-decoration: none;
+  background: none;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+body {
+  padding-top: 20px;
+  height: 100vh;
+  background-color: #6AA695;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h1 {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #193140;
+}
+
+h2 {
+  margin-bottom: 6px;
+  text-align: center;
+  font-size: 20px;
+  color: #193140;
+  font-weight: 700;
+}
+
+.container-top {
+  display: flex;
+}
+.container-top .container-left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-top .container-left .container-left-center {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 500px;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+.container-top .container-left .container-left-center .evidence-1 {
+  margin-bottom: 30px;
+}
+.container-top .container-left .container-left-center .evidence-1 .evidences {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  font-size: 16px;
+  color: #3D3D3D;
+}
+.container-top .container-left .container-left-center .evidence-2 {
+  margin-bottom: 30px;
+}
+.container-top .container-left .container-left-center .evidence-2 .evidences {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  font-size: 16px;
+  color: #3D3D3D;
+}
+.container-top .container-left .container-left-center .evidence-3 {
+  margin-bottom: 30px;
+}
+.container-top .container-left .container-left-center .evidence-3 .evidences {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  font-size: 16px;
+  color: #3D3D3D;
+}
+.container-top .container-left .container-left-center .button-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-top .container-left .container-left-center .button-search button {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: #347367;
+  cursor: pointer;
+  font-size: 16px;
+  color: #ffffff;
+}
+.container-top .container-left .container-left-center .button-search button:hover {
+  transition: 0.2s;
+  background-color: #6AA695;
+  letter-spacing: 1px;
+}
+.container-top .container-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.container-top .container-right .container-right-center {
+  padding: 30px;
+  width: 800px;
+  height: 700px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+.container-top .container-right .container-right-center .phantoms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container-top .container-right .container-right-center .phantoms .types-phantoms {
+  width: 100%;
+}
+.container-top .container-right .container-right-center .phantoms .types-phantoms .name-phantom {
+  margin-left: 30px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #1C5359;
+  font-weight: bold;
+}
+.container-top .container-right .container-right-center .phantoms .types-phantoms .evidences {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #3D3D3D;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+}
 
 /*# sourceMappingURL=style.css.map */
