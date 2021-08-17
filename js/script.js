@@ -7,6 +7,15 @@ const GHOST_WRITING = 'ghost-writing'
 const FINGERPRINTS = 'fingerprints'
 const SPIRIT_BOX = 'spirit-box'
 
+const EVIDENCE_DICTIONARY = []
+
+EVIDENCE_DICTIONARY[LOW_TEMPERATURE] = 'Temperatura Baixa'
+EVIDENCE_DICTIONARY[GHOST_ORB] = 'Orbe Fantasma'
+EVIDENCE_DICTIONARY[EMF_5] = 'EMF Nível-5'
+EVIDENCE_DICTIONARY[GHOST_WRITING] = 'Escrita Fantasma'
+EVIDENCE_DICTIONARY[FINGERPRINTS] = 'Impressões Digitais'
+EVIDENCE_DICTIONARY[SPIRIT_BOX] = 'Spirit Box'
+
 const PHANTOMS = [
     {
         name: 'Espirito',
@@ -71,16 +80,14 @@ const PHANTOMS = [
 ]
 
 function verifyRadioCheck() {
-
     const evidences = getEvidence()
 
     console.log('evidencias: ', evidences);
 
-    getGhost(evidences)
+    const ghosts = getGhost(evidences)
 }
 
 function getEvidence() {
-
     const $inputs = document.querySelectorAll('.evidences input:checked')
 
     const inputDataArray = []
@@ -94,20 +101,18 @@ function getEvidence() {
 }
 
 function getGhost(evidences) {
-
     let remainingPhantons = [...PHANTOMS]
 
     evidences.forEach(function (evidence) {
         remainingPhantons = remainingPhantons.filter(function (phantom) {
             return phantom.evidences.includes(evidence)
         })        
-    })    
+    })
+    
+    return remainingPhantons
 }
 
 $buttonSearch.addEventListener('click', function (event) {
     event.preventDefault()
-
-    console.log('Apertou o botão')
-
     verifyRadioCheck()
 })
