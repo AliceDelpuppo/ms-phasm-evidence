@@ -1,4 +1,5 @@
 const $buttonSearch = document.querySelector('#button-search')
+const $phantomsPrintArray = document.querySelectorAll('.phantoms .types-phantoms')
 
 const LOW_TEMPERATURE = 'low-temperature'
 const GHOST_ORB = 'ghost-orb'
@@ -79,12 +80,49 @@ const PHANTOMS = [
 
 ]
 
-function verifyRadioCheck() {
-    const evidences = getEvidence()
+// function verifyRadioCheck() {
+//     const evidences = getEvidence()
 
-    console.log('evidencias: ', evidences);
+//     // console.log('evidencias: ', evidences);
 
-    const ghosts = getGhost(evidences)
+//     const remainingPhantons = getGhost(evidences)
+
+//     console.log(remainingPhantons)
+
+//     printGhost(remainingPhantons)
+
+
+// }
+
+function printGhost(phantoms) {
+    $phantomsPrintArray.forEach(function ($phantomPrint, i) {
+        const $name = $phantomPrint.querySelector('.name-phantom')
+        const $evidences = $phantomPrint.querySelector('.evidences')
+
+        const phan = phantoms[i]
+
+        if (phan) {
+            $name.textContent = phan.name
+            printEvidences(phan.evidences, $evidences)
+        } else {
+            $name.textContent = ' '
+            $evidences.textContent = ' '
+        }
+    });
+}
+
+function printEvidences(evidences, $positionEvidence) {
+    // let evidencesArray = []
+    const evidencesArray = []
+
+    for (let i = 0; i < evidences.length; i++) {
+        // evidencesArray[i] = ' ' + EVIDENCE_DICTIONARY[evidences[i]]
+
+        const evidencePortuguese = ' ' + EVIDENCE_DICTIONARY[evidences[i]]
+        evidencesArray.push(evidencePortuguese)
+    }
+
+    $positionEvidence.textContent = evidencesArray
 }
 
 function getEvidence() {
@@ -106,13 +144,22 @@ function getGhost(evidences) {
     evidences.forEach(function (evidence) {
         remainingPhantons = remainingPhantons.filter(function (phantom) {
             return phantom.evidences.includes(evidence)
-        })        
+        })
     })
-    
+
     return remainingPhantons
 }
 
 $buttonSearch.addEventListener('click', function (event) {
     event.preventDefault()
-    verifyRadioCheck()
+
+    const evidences = getEvidence()
+
+    // console.log('evidencias: ', evidences);
+
+    const remainingPhantons = getGhost(evidences)
+
+    console.log(remainingPhantons)
+
+    printGhost(remainingPhantons)
 })
