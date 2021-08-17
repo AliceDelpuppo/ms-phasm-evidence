@@ -1,4 +1,5 @@
 const $buttonSearch = document.querySelector('#button-search')
+const $buttonReset = document.querySelector('.button-reset')
 const $phantomsPrintArray = document.querySelectorAll('.phantoms .types-phantoms')
 
 const LOW_TEMPERATURE = 'low-temperature'
@@ -80,20 +81,6 @@ const PHANTOMS = [
 
 ]
 
-// function verifyRadioCheck() {
-//     const evidences = getEvidence()
-
-//     // console.log('evidencias: ', evidences);
-
-//     const remainingPhantons = getGhost(evidences)
-
-//     console.log(remainingPhantons)
-
-//     printGhost(remainingPhantons)
-
-
-// }
-
 function printGhost(phantoms) {
     $phantomsPrintArray.forEach(function ($phantomPrint, i) {
         const $name = $phantomPrint.querySelector('.name-phantom')
@@ -163,3 +150,10 @@ $buttonSearch.addEventListener('click', function (event) {
 
     printGhost(remainingPhantons)
 })
+
+$buttonReset.addEventListener('click', function (event) {
+    event.preventDefault()
+
+})
+
+
