@@ -77,6 +77,16 @@ const PHANTOMS = [
     {
         name: 'Oni',
         evidences: [EMF_5, SPIRIT_BOX, GHOST_WRITING]
+    },
+
+    {
+        name: 'Yokai',
+        evidences: [SPIRIT_BOX, GHOST_WRITING, GHOST_ORB]
+    },
+
+    {
+        name: 'Hantu',
+        evidences: [FINGERPRINTS, GHOST_WRITING, GHOST_ORB]
     }
 
 ]
@@ -92,24 +102,25 @@ function printGhost(phantoms) {
             $name.textContent = phan.name
             printEvidences(phan.evidences, $evidences)
         } else {
-            $name.textContent = ' '
-            $evidences.textContent = ' '
+            $name.textContent = ''
+            $evidences.textContent = ''
         }
     });
 }
 
 function printEvidences(evidences, $positionEvidence) {
-    // let evidencesArray = []
-    const evidencesArray = []
+    const evidenceNames = evidences.map(function(evidence){
+        return EVIDENCE_DICTIONARY[evidence]
+    })
 
-    for (let i = 0; i < evidences.length; i++) {
-        // evidencesArray[i] = ' ' + EVIDENCE_DICTIONARY[evidences[i]]
+    $positionEvidence.textContent = evidenceNames.join(', ')
 
-        const evidencePortuguese = ' ' + EVIDENCE_DICTIONARY[evidences[i]]
-        evidencesArray.push(evidencePortuguese)
-    }
-
-    $positionEvidence.textContent = evidencesArray
+    // const evidencesArray = []
+    // for (let i = 0; i < evidences.length; i++) {
+    //     const evidencePortuguese = ' ' + EVIDENCE_DICTIONARY[evidences[i]]
+    //     evidencesArray.push(evidencePortuguese)
+    // }
+    // $positionEvidence.textContent = evidencesArray
 }
 
 function getEvidence() {
