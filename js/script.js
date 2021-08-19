@@ -2,6 +2,8 @@ const $buttonSearch = document.querySelector('#button-search')
 const $buttonReset = document.querySelector('.button-reset')
 const $phantomsPrintArray = document.querySelectorAll('.phantoms .types-phantoms')
 
+// console.log($buttonReset)
+
 const LOW_TEMPERATURE = 'low-temperature'
 const GHOST_ORB = 'ghost-orb'
 const EMF_5 = 'emf-5'
@@ -165,6 +167,13 @@ $buttonSearch.addEventListener('click', function (event) {
 $buttonReset.addEventListener('click', function (event) {
     event.preventDefault()
 
+    const inputs = document.querySelectorAll('input[type="radio"]');
+
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].checked = false;
+    }
+
+    
 })
 
 
