@@ -2,8 +2,6 @@ const $buttonSearch = document.querySelector('#button-search')
 const $buttonReset = document.querySelector('.button-reset')
 const $phantomsPrintArray = document.querySelectorAll('.phantoms .types-phantoms')
 
-// console.log($buttonReset)
-
 const LOW_TEMPERATURE = 'low-temperature'
 const GHOST_ORB = 'ghost-orb'
 const EMF_5 = 'emf-5'
@@ -111,7 +109,7 @@ function printGhost(phantoms) {
 }
 
 function printEvidences(evidences, $positionEvidence) {
-    const evidenceNames = evidences.map(function(evidence){
+    const evidenceNames = evidences.map(function (evidence) {
         return EVIDENCE_DICTIONARY[evidence]
     })
 
@@ -155,8 +153,6 @@ $buttonSearch.addEventListener('click', function (event) {
 
     const evidences = getEvidence()
 
-    // console.log('evidencias: ', evidences);
-
     const remainingPhantons = getGhost(evidences)
 
     console.log(remainingPhantons)
@@ -172,8 +168,15 @@ $buttonReset.addEventListener('click', function (event) {
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].checked = false;
     }
-
-    
+    cleanerPrintPhantoms()
 })
 
+function cleanerPrintPhantoms() {
+    $phantomsPrintArray.forEach(function ($phantomPrint) {
+        const $name = $phantomPrint.querySelector('.name-phantom')
+        const $evidences = $phantomPrint.querySelector('.evidences')
 
+        $name.textContent = ''
+        $evidences.textContent = ''
+    })
+}
